@@ -1,5 +1,5 @@
 #include <iostream>
-#include "utils/array_tools.h"
+#include "../utils/array_tools.h"
 
 using namespace std;
 

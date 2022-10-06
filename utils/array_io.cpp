@@ -1,4 +1,6 @@
 #include <iostream>
+#include <random>
+
 
 using namespace std;
 
@@ -52,4 +54,27 @@ void	matrix_delete(int **matrix, unsigned int column_size)
 	for (unsigned int i = 0; i < column_size; i++)
 		delete [] matrix[i];
 	delete [] matrix;
+}
+
+int		**matrix_init(unsigned int row, unsigned int column)
+{
+	int	**matrix;
+
+	matrix = new int *[row];
+	for (unsigned int i = 0; i < row; i++)
+		matrix[i] = new int [column];
+
+	return matrix;
+}
+
+void	generate_matrix(int **matrix, unsigned int row, unsigned int column)
+{
+	random_device rd;
+	mt19937 mt(rd());;
+	uniform_int_distribution<int> generate(-100, 100);
+	for (unsigned int i = 0; i < row; i++)
+	{
+		for (unsigned j = 0; j < column; j++)
+			matrix[i][j] = generate(mt);
+	}
 }
