@@ -2,10 +2,12 @@
 // Created by vazin on 03.09.2022.
 //
 
-#ifndef CONCURENT_COMPUTING_ARRAY_TOOLS_H
-#define CONCURENT_COMPUTING_ARRAY_TOOLS_H
+#ifndef CONCURRENT_COMPUTING_ARRAY_TOOLS_H
+#define CONCURRENT_COMPUTING_ARRAY_TOOLS_H
 
-int		*array_create(unsigned int size);
-void	array_output(const int *arr, unsigned int size);
+int *array_create(unsigned int size);
+int *array_create_random(unsigned int size);
+void array_output(const int *arr, unsigned int size);
+int get_level();
 
-#endif //CONCURENT_COMPUTING_ARRAY_TOOLS_H
+#endif // CONCURRENT_COMPUTING_ARRAY_TOOLS_H
