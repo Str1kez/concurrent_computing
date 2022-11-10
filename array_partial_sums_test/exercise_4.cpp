@@ -47,9 +47,10 @@ void printHistogram(int arr[], int n)
 
 int main()
 {
-	unsigned int processor_count;
-	int size, *array, *array_temp, *hist;
-	double start, end;
+	unsigned int	processor_count;
+	int				size, *hist;
+	long long int	*array, *array_temp;
+	double			start, end;
 
 	processor_count = thread::hardware_concurrency();
 	size = get_level() * 2;

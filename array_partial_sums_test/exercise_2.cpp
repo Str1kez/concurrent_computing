@@ -8,12 +8,13 @@ using namespace std;
 
 int main()
 {
-	int size, *array, *array_temp, *array_temp_parallel;
-	double start, end, start_parallel, end_parallel;
+	int				size, in_a_row;
+	long long int	*array_temp_parallel, *array, *array_temp;
+	double			start, end, start_parallel, end_parallel;
 
-	start = end = start_parallel = end_parallel = 0;
+	start = end = start_parallel = end_parallel = in_a_row = 0;
 	size = 1;
-	while ((end - start) <= (end_parallel - start_parallel))
+	while (in_a_row != 30)
 	{
 		size++;
 		array = array_create_random(size);
@@ -26,6 +27,11 @@ int main()
 		array_temp_parallel = partial_sum_parallel(array, size);
 		end_parallel = omp_get_wtime();
 
+		if ((end - start) > (end_parallel - start_parallel))
+			in_a_row++;
+		else
+			in_a_row = 0;
+
 		delete[] array;
 		delete[] array_temp;
 		delete[] array_temp_parallel;
@@ -33,7 +39,7 @@ int main()
 
 	ofstream out;
 	out.open("./parallel_level.txt");
-	out << size << endl;
+	out << size - in_a_row << endl;
 	out.close();
 
 	return 0;

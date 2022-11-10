@@ -6,7 +6,9 @@ using namespace std;
 
 int main()
 {
-    int size, *array, *array_temp;
+    int				size;
+    long long int	*array, *array_temp;
+
     cout << "Enter size of array: \t";
     cin >> size;
     array = array_create_random(size);
@@ -17,6 +19,7 @@ int main()
 
     cout << "Array of partial sum:" << endl;
     array_output(array_temp, size);
+
     delete[] array;
     delete[] array_temp;
     return 0;
